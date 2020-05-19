@@ -14,7 +14,7 @@ namespace Amiibopedia.ViewModels
 
         public async Task LoadCharacters()
         {
-            var url = "https://www.amiiboapi.com/api/character";
+            var url = "https://www.amiiboapi.com/api/character/";
             var service = new HttpHelper<Characters>();
 
             var characters = await service.GetRestServiceDataAsync(url);
