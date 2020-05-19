@@ -11,16 +11,20 @@ namespace Amiibopedia.Helpers
     {
         public async Task<T> GetRestServiceDataAsync(string serviceAddress)
         {
+            //lo que hacemos de cualquier  resultado tipo rest lo
+            //deserealizamos correcto de acuerdo al metodo indicado
             var client = new HttpClient();
             client.BaseAddress = new Uri(serviceAddress);
 
-            var response = await client.GetAsync(client.BaseAddress);
-            response.EnsureSuccessStatusCode();
+            var response =
+                await client.GetAsync(client.BaseAddress);
 
-            var jsonResult = await response.Content.ReadAsStringAsync();
+            response.EnsureSuccessStatusCode();
+            //como esasyncrono
+            var jsonResult =
+               await response.Content.ReadAsStringAsync();
 
             var result = JsonConvert.DeserializeObject<T>(jsonResult);
-
             return result;
         }
     }
