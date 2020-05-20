@@ -32,6 +32,8 @@ namespace Amiibopedia.ViewModels
         {
             SearchCommand = new Command(async (param)=> 
             {
+                IsBusy = true;
+
                 var character = param as Character;
 
                 if(character != null)
@@ -43,18 +45,21 @@ namespace Amiibopedia.ViewModels
 
                     Amiibos = new ObservableCollection<Amiibo>(amiibos.amiibo);
                 }
+                IsBusy = false;
             });
         }
 
         public async Task LoadCharacters()
         {
+            IsBusy = true;
+
             var url = "https://www.amiiboapi.com/api/character/";
             var service = new HttpHelper<Characters>();
 
             var characters = await service.GetRestServiceDataAsync(url);
             Characters = new ObservableCollection<Character>(characters.amiibo);
 
-
+            IsBusy = false;
         }
     }
 }
