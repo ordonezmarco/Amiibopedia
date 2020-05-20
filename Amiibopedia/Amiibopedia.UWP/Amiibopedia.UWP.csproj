@@ -146,7 +146,7 @@
     <PackageReference Include="Syncfusion.Xamarin.SfAutoComplete">
       <Version>18.1.0.53</Version>
     </PackageReference>
-    <PackageReference Include="Xamarin.Forms" Version="4.6.0.800" />
+    <PackageReference Include="Xamarin.Forms" Version="4.5.0.725" />
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform" Version="6.2.10" />
   </ItemGroup>
   <ItemGroup>
